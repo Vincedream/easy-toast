@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Toast from './Toast';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function App () {
+  const handleClick1 = () => {
+    Toast.info('test111', 2000);
+  }
+
+  const handleClick2 = () => {
+    Toast.info('test222', 1000, true);
+  }
+
+  const handleClick3 = () => {
+    Toast.info('test333', 1000, true);
+    Toast.info('test long duration', 4000, true);
+  }
+
+  const handleHideAllToast = () => {
+    Toast.hide();
+  }
+
+  return(
+    <div>
+      <button onClick={handleClick1}>no mask Toast</button><br/>
+      <button onClick={handleClick2}>with mask Toast</button><br/>
+      <button onClick={handleClick3}>long duration</button><br/>
+      <button onClick={handleHideAllToast}>hideAllToast</button>
     </div>
-  );
+  )
 }
 
 export default App;
